@@ -1,6 +1,15 @@
-![image]({https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white})  ![image]({https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white})
 
-[![](https://img.shields.io/badge/playwright_crud_example-grey?style=for-the-badge)](https://www.cypress.io/)
+<p align = "center">
+    <img src="https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" /> <img src = "https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white"/>
+
+</p>
+
+<p align = "center">
+    <img src="https://img.shields.io/badge/playwright_crud_example-grey?style=for-the-badge"
+     />
+</p>
+
+
 
 CRUD API testing example with Playwright and Typescript
 
