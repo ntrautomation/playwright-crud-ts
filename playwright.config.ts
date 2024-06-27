@@ -1,10 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-
+// import dotenv from 'dotenv';
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import * as dotenv from 'dotenv';
 //.env settings
 dotenv.config();
 if(process.env.ENVIRONMENT){
@@ -21,13 +23,7 @@ if(process.env.ENVIRONMENT){
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests/', 
-  timeout: 30 * 1000,
-
-  //Assertions timeout, will working only when using "expect" keyword
-  expect: {
-    timeout: 5000
-  },
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -44,28 +40,25 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: {
-         ...devices['Desktop Chrome'],
-        headless: false
-       },
+      use: { ...devices['Desktop Chrome'] },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {

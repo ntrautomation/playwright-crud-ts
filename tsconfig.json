@@ -14,5 +14,5 @@
       "lib": ["ESNext", "dom"],
       "types": ["node"]
     },
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts", "tsconfig.json"]
   }

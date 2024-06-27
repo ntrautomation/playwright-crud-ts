@@ -13,7 +13,7 @@
 
 CRUD API testing example with Playwright and Typescript
 
-![playwright](https://img.shields.io/badge/Playwright-1.44.1-brightgreen) ![ts](https://img.shields.io/badge/TS-5.4.5-blue) ![faker](https://img.shields.io/badge/Faker-8.4.1-lightgrey) ![eslint](https://img.shields.io/badge/EsLint-8.56.0-darkviolet)
+![playwright](https://img.shields.io/badge/Playwright-1.45.0-brightgreen) ![ts](https://img.shields.io/badge/TS-5.4.5-blue) ![faker](https://img.shields.io/badge/Faker-8.4.1-lightgrey) ![eslint](https://img.shields.io/badge/EsLint-8.56.0-darkviolet)
 
 [![](https://img.shields.io/badge/PROJECT_SETUP-grey?style=for-the-badge)](https://www.cypress.io/)
 - clone the repo
