@@ -10,9 +10,9 @@ test.describe('CRUD API FLOW', () => {
     })
 
     test('LOGIN', async () => {
-        console.log(await controler.createUser())
+        const user = await controler.createUser();
+        console.log(await user.userID);
+        console.log(await user.username);
         expect(test.info().errors.length).toBeLessThan(1);
-    })
-    
-    
+    })  
 })

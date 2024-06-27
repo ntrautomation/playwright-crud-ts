@@ -1,4 +1,5 @@
 import Initializer from "@e2e/api/initializer";
+import { TEST_USER } from "@e2e/helpers/constants";
 
 class Controler extends Initializer{
 
@@ -9,10 +10,7 @@ class Controler extends Initializer{
     async createUser(){
         const response = await this.request.post(
             process.env.USER_ENDPOINT, {
-                data : {
-                    userName: "Automati_123",
-                    password: "123Automation$3"
-                }
+                data : TEST_USER
             }
         );
         return await response.json()
