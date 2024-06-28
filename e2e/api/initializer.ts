@@ -1,12 +1,14 @@
-import { APIRequestContext, Page, request } from "@playwright/test";
+import { APIRequestContext, BrowserContext, Page, request } from "@playwright/test";
 
 class Initializer {
     page: Page
     request: APIRequestContext
+    context : BrowserContext
 
-    constructor(page, request){
+    constructor(page, request, context){
         this.page = page;
         this.request = request;
+        this.context = context;
         this.init();
     }
 

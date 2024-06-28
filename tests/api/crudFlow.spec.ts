@@ -8,8 +8,8 @@ const bookList: string[] = [];
 test.describe('CRUD API FLOW', () => {
     let controler : Controler
    
-    test.beforeEach(async ({ page, request }) => {
-        controler = new Controler(page, request);
+    test.beforeEach(async ({ page, request , context}) => {
+        controler = new Controler(page, request, context);
         await controler.navigate();
         Iterator.iterateOverJson(bookList, books)
     })

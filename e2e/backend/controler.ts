@@ -3,8 +3,8 @@ import { Const, TEST_USER } from "@e2e/helpers/constants";
 const authFile = 'playwright/.auth/user.json';
 class Controler extends Initializer{
 
-    constructor(page, request){
-        super(page, request)
+    constructor(page, request, context){
+        super(page, request, context)
     }
 
     async createUser(){
@@ -78,8 +78,23 @@ class Controler extends Initializer{
             process.env.LOGIN_ENDPOINT,
             Const.loginUserOptions(),
         )
-        await this.request.storageState({ path: authFile });
+        const res = await response.json()
+        await this.context.addCookies([
+            { name: 'token', value: res.token, 
+                path: process.env.PATH, domain: process.env.DOMAIN},
+            { name: 'expires', value: res.expires, 
+                path: process.env.PATH, domain: process.env.DOMAIN},
+            { name: 'userID', value: res.userId, 
+                path: process.env.PATH, domain: process.env.DOMAIN},
+            { name: 'userName', value: res.username, 
+                path: process.env.PATH, domain: process.env.DOMAIN}   
+
+        ]);
         return response.json()
+    }
+
+    async getCookies(){
+        
     }
 }
 export default Controler;
