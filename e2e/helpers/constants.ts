@@ -16,3 +16,16 @@ export const TEST_USER: IRandomUser = {
             prefix: "9$"
         })
 }
+
+class Constants {
+    getOptions(Authorization: string){
+        const options = {
+                headers: {
+                    Authorization,
+                }
+        };
+        console.log(options)
+        return options;
+    }
+}
+export const Const = new Constants();

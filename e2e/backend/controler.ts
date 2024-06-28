@@ -1,5 +1,5 @@
 import Initializer from "@e2e/api/initializer";
-import { TEST_USER } from "@e2e/helpers/constants";
+import { Const, TEST_USER } from "@e2e/helpers/constants";
 
 class Controler extends Initializer{
 
@@ -23,17 +23,18 @@ class Controler extends Initializer{
         const response = await this.request.post(
             process.env.TOKEN_ENDPOINT,{
                 data: LOGIN_USER
-            });
+            }
+            
+        );
         return await response.json();
     }
 
     async getUserInformation(token, userID){
         const Authorization = `Bearer ${token}`;
-        const response = await this.request.get(`${process.env.USER_ENDPOINT}/${userID}`, {
-            headers: {
-                Authorization,
-            } 
-        });
+        const response = await this.request.get(
+            `${process.env.USER_ENDPOINT}/${userID}`,
+            Const.getOptions(Authorization))
+        
         return await response.json();
     }
 }
