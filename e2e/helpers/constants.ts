@@ -26,5 +26,33 @@ class Constants {
         };
         return options;
     }
+
+    bookOptions(Authorization: string, userID, isbn){
+        const options = {
+            data: {
+                userId: userID, 
+                collectionOfIsbns: [{
+                    isbn : isbn
+                }]
+            },
+            headers: {
+                Authorization,
+            }
+        }
+        return options;
+    }
+
+    updateBookOptions(Authorization: string, userID, isbnNew){
+        const options = {
+            data: {
+                userId: userID, 
+                isbn: isbnNew
+            },
+            headers: {
+                Authorization,
+            }
+        }
+        return options;
+    }
 }
 export const Const = new Constants();

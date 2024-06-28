@@ -9,6 +9,7 @@
         "@data/*" : ["e2e/data/*"],
         "@fixtures/*" : ["e2e/fixtures/*"]
       },
+      "resolveJsonModule": true,
       "moduleResolution": "node",
       "target": "ESNext",
       "lib": ["ESNext", "dom"],

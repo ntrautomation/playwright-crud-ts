@@ -45,5 +45,23 @@ class Controler extends Initializer{
         )
         return await response;
     }
+
+    async addBookToUser(token, userID, isbn){
+        const Authorization = `Bearer ${token}`;
+        const response = await this.request.post(
+            process.env.BOOKS_ENDPOINT,
+            Const.bookOptions(Authorization, userID, isbn)
+        )
+        return await response.json();
+    }
+
+    async updateUserBook(token, userID, isbn, isbnNew){
+        const Authorization = `Bearer ${token}`;
+        const response = await this.request.put(
+            `${process.env.BOOKS_ENDPOINT}/${isbn}`,
+            Const.updateBookOptions(Authorization, userID, isbnNew)
+        )
+        return await response.json()
+    }
 }
 export default Controler;
