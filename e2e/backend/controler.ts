@@ -1,6 +1,6 @@
 import Initializer from "@e2e/api/initializer";
 import { Const, TEST_USER } from "@e2e/helpers/constants";
-
+const authFile = 'playwright/.auth/user.json';
 class Controler extends Initializer{
 
     constructor(page, request){
@@ -71,6 +71,15 @@ class Controler extends Initializer{
             Const.deleteBookOptions(Authorization, userID, isbn)
         )
         return response;
+    }
+
+    async loginUser(){
+        const response = await this.request.post(
+            process.env.LOGIN_ENDPOINT,
+            Const.loginUserOptions(),
+        )
+        await this.request.storageState({ path: authFile });
+        return response.json()
     }
 }
 export default Controler;

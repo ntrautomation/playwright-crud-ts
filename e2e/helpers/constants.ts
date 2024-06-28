@@ -67,5 +67,18 @@ class Constants {
         }
         return options;
     }
+
+    loginUserOptions(){
+        const options = {
+            data: {
+                userName: process.env.USER_NAME,
+                password: process.env.PASSWORD
+            },
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        }
+        return options;
+    }
 }
 export const Const = new Constants();
