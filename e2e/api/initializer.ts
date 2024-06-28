@@ -16,7 +16,6 @@ class Initializer {
         });
     }
     async navigate() {
-        console.log(process.env.BASE_URL);
         await this.page.goto(process.env.BASE_URL)
     }
 

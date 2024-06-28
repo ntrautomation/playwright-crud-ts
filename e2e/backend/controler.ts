@@ -11,9 +11,20 @@ class Controler extends Initializer{
         const response = await this.request.post(
             process.env.USER_ENDPOINT, {
                 data : TEST_USER
-            }
-        );
-        return await response.json()
+            });
+        return await response.json();
+    }
+
+    async getAuthorizationToken(){
+        const LOGIN_USER: IRandomUser = {
+            userName: TEST_USER.userName,
+            password: TEST_USER.password
+        }
+        const response = await this.request.post(
+            process.env.TOKEN_ENDPOINT,{
+                data: LOGIN_USER
+            });
+        return await response.json();
     }
 }
 export default Controler;

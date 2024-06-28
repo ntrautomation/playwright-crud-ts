@@ -13,6 +13,9 @@ test.describe('CRUD API FLOW', () => {
         const user = await controler.createUser();
         console.log(await user.userID);
         console.log(await user.username);
+
+        const token = await controler.getAuthorizationToken();
+        console.log(token.token);
         expect(test.info().errors.length).toBeLessThan(1);
     })  
 })
