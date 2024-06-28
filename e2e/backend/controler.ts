@@ -26,5 +26,15 @@ class Controler extends Initializer{
             });
         return await response.json();
     }
+
+    async getUserInformation(token, userID){
+        const Authorization = `Bearer ${token}`;
+        const response = await this.request.get(`${process.env.USER_ENDPOINT}/${userID}`, {
+            headers: {
+                Authorization,
+            } 
+        });
+        return await response.json();
+    }
 }
 export default Controler;
