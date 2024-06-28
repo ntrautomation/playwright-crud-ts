@@ -24,7 +24,6 @@ class Controler extends Initializer{
             process.env.TOKEN_ENDPOINT,{
                 data: LOGIN_USER
             }
-            
         );
         return await response.json();
     }
@@ -33,9 +32,18 @@ class Controler extends Initializer{
         const Authorization = `Bearer ${token}`;
         const response = await this.request.get(
             `${process.env.USER_ENDPOINT}/${userID}`,
-            Const.getOptions(Authorization))
+            Const.authOptions(Authorization))
         
         return await response.json();
+    }
+
+    async deleteUser(token, userID){
+        const Authorization = `Bearer ${token}`;
+        const response = await this.request.delete(
+            `${process.env.USER_ENDPOINT}/${userID}`,
+            Const.authOptions(Authorization)
+        )
+        return await response;
     }
 }
 export default Controler;

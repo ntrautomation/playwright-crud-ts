@@ -18,13 +18,12 @@ export const TEST_USER: IRandomUser = {
 }
 
 class Constants {
-    getOptions(Authorization: string){
+    authOptions(Authorization: string){
         const options = {
                 headers: {
                     Authorization,
                 }
         };
-        console.log(options)
         return options;
     }
 }
