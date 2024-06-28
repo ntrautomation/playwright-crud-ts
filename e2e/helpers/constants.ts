@@ -54,5 +54,18 @@ class Constants {
         }
         return options;
     }
+
+    deleteBookOptions(Authorization: string, userID, isbn){
+        const options = {
+            data: { 
+                isbn: isbn,
+                userId: userID
+            },
+            headers: {
+                Authorization,
+            }
+        }
+        return options;
+    }
 }
 export const Const = new Constants();

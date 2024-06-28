@@ -63,5 +63,14 @@ class Controler extends Initializer{
         )
         return await response.json()
     }
+    
+    async deleteUserBook(token, userID, isbn){
+        const Authorization = `Bearer ${token}`;
+        const response = await this.request.delete(
+            process.env.BOOK_ENDPOINT,
+            Const.deleteBookOptions(Authorization, userID, isbn)
+        )
+        return response;
+    }
 }
 export default Controler;
