@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "playwirght crud example",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "runner" : "playwright test --ui"
+  },
   "keywords": [],
   "author": "Nenad Trajanovski",
   "license": "ISC",

@@ -1,6 +1,6 @@
 import Initializer from "@e2e/api/initializer";
+import { DEMO_COOKIE } from "@e2e/enums/cookies";
 import { Const, TEST_USER } from "@e2e/helpers/constants";
-const authFile = 'playwright/.auth/user.json';
 class Controler extends Initializer{
 
     constructor(page, request, context){
@@ -79,22 +79,24 @@ class Controler extends Initializer{
             Const.loginUserOptions(),
         )
         const res = await response.json()
-        await this.context.addCookies([
-            { name: 'token', value: res.token, 
-                path: process.env.PATH, domain: process.env.DOMAIN},
-            { name: 'expires', value: res.expires, 
-                path: process.env.PATH, domain: process.env.DOMAIN},
-            { name: 'userID', value: res.userId, 
-                path: process.env.PATH, domain: process.env.DOMAIN},
-            { name: 'userName', value: res.username, 
-                path: process.env.PATH, domain: process.env.DOMAIN}   
-
-        ]);
+        await this.getCookies(res)
         return response.json()
     }
+    
 
-    async getCookies(){
-        
+    async getCookies(res){
+        const demo_cookies: ICookie[] = [
+            {name: DEMO_COOKIE.EXPIRES, 
+                value: res.expires, url : process.env.BASE_URL},
+            {name: DEMO_COOKIE.TOKEN, 
+                value: res.token, url : process.env.BASE_URL},
+            {name: DEMO_COOKIE.USER_ID, 
+                value: res.userId, url : process.env.BASE_URL},
+            { name: DEMO_COOKIE.USER_NAME, 
+                value: res.username, url : process.env.BASE_URL} 
+        ]
+
+        await this.context.addCookies(demo_cookies);
     }
 }
 export default Controler;

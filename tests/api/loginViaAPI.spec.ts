@@ -13,10 +13,13 @@ test.describe('LOGIN VIA API', () => {
         
     });
 
-    test('MY', async ({ page, context}) => {
+    test.afterEach(async ({ context }) => {
+        await context.clearCookies();
+    });
+
+    test('LOGIN USER WITH COOKIES', async ({ page }) => {
         await controler.loginUser();
-        //page = await context.newPage()
-        await  page.goto('https://demoqa.com/books')
+        await  page.goto(process.env.BOOKS);
         expect(await loginPage.getUserLabelText()).toEqual(process.env.USER_NAME)
     })
     
