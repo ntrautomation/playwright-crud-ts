@@ -19,3 +19,6 @@ CRUD API testing example with Playwright and Typescript
 - clone the repo
 - open the project and in terminal run `npm i`
 - `.env` is excluded from commits -> in the root folder `touch .env` to create one
+
+> [!TIP]
+>For more convenient usage use `npm run runner`. It will trigger `playwright test --ui` from `package.json`.
