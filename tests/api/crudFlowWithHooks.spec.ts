@@ -13,7 +13,6 @@ test.describe('CRUD API FLOW WITH HOOKS', () => {
    
     test.beforeEach(async ({ page, request, context }) => {
         controler = new Controler(page, request, context);
-        await controler.navigate();
         Iterator.iterateOverJson(bookList, books)
         user = await controler.createUser()
         token = await controler.getAuthorizationToken();

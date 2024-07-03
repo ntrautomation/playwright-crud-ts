@@ -10,7 +10,6 @@ test.describe('CRUD API FLOW', () => {
    
     test.beforeEach(async ({ page, request , context}) => {
         controler = new Controler(page, request, context);
-        await controler.navigate();
         Iterator.iterateOverJson(bookList, books)
     })
 
