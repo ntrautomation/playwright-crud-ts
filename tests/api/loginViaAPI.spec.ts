@@ -6,11 +6,9 @@ test.describe('LOGIN VIA API', () => {
     let controler : Controler;
     let loginPage : LoginPage
 
-    test.beforeEach(async ({ page, request , context}) => {
+    test.beforeEach(async ({ page, request, context}) => {
         controler = new Controler(page, request, context);
-        loginPage = new LoginPage(page, request, context);
-        await controler.navigate();
-        
+        loginPage = new LoginPage(page); 
     });
 
     test.afterEach(async ({ context }) => {

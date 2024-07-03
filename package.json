@@ -4,7 +4,8 @@
   "description": "playwirght crud example",
   "main": "index.js",
   "scripts": {
-    "runner" : "playwright test --ui"
+    "runner" : "playwright test --ui",
+    "report" : "playwright show-report"
   },
   "keywords": [],
   "author": "Nenad Trajanovski",
